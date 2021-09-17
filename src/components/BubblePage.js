@@ -34,6 +34,7 @@ const BubblePage = () => {
           }
           return item;
         });
+        console.log(newColors);
         setColors(newColors);
       })
       .catch((err) => {
