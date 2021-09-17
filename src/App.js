@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Login from "./components/Login";
+import BubblePage from "./components/BubblePage";
 import "./styles.scss";
 
 function App() {
@@ -10,9 +11,17 @@ function App() {
       <div className="App">
         <header>
           Color Picker Sprint Challenge
-          <a data-testid="logoutButton" href="#">logout</a>
+          <a data-testid="logoutButton" href="#">
+            logout
+          </a>
         </header>
       </div>
+
+      <Switch>
+        <Route path="/bubblepage" component={BubblePage} />
+        <Route path="/login" component={Login} />
+        <Route path="/" component={Login} />
+      </Switch>
     </Router>
   );
 }
