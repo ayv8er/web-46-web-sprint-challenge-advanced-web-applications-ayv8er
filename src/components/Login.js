@@ -10,12 +10,10 @@ const Login = (props) => {
   });
 
   //replace with error state
-  const [error, setError] = useState({
-    username: "",
-    password: "",
-  });
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
+    setError("");
     setCredentials({
       ...credentials,
       [event.target.name]: event.target.value,
@@ -31,7 +29,7 @@ const Login = (props) => {
         props.history.push("/bubblepage");
       })
       .catch((err) => {
-        console.log(err);
+        setError("Your login or password is incorrect");
       });
   };
 
@@ -66,10 +64,10 @@ const Login = (props) => {
           </div>
         </form>
       </div>
-      {/* 
+
       <p id="error" className="error">
         {error}
-      </p> */}
+      </p>
     </div>
   );
 };
