@@ -16,6 +16,9 @@ function App(props) {
       .then((res) => {
         localStorage.removeItem("token");
         window.location.href = "/";
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
