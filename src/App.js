@@ -5,13 +5,25 @@ import Login from "./components/Login";
 import BubblePage from "./components/BubblePage";
 import "./styles.scss";
 
-function App() {
+import axiosWithAuth from "./helpers/axiosWithAuth";
+
+function App(props) {
+  const clickLogout = (event) => {
+    event.preventDefault();
+    axiosWithAuth()
+      .post("/logout")
+      .then((res) => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      });
+  };
+
   return (
     <Router>
       <div className="App">
         <header>
           Color Picker Sprint Challenge
-          <a data-testid="logoutButton" href="#">
+          <a onClick={clickLogout} data-testid="logoutButton" href="#">
             logout
           </a>
         </header>
