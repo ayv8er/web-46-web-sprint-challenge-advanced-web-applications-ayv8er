@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Login from "./components/Login";
 import BubblePage from "./components/BubblePage";
+import PrivateRoute from "./components/PrivateRoute";
 import "./styles.scss";
 
 import axiosWithAuth from "./helpers/axiosWithAuth";
@@ -30,7 +31,7 @@ function App(props) {
       </div>
 
       <Switch>
-        <Route path="/bubblepage" component={BubblePage} />
+        <PrivateRoute path="/bubblepage" component={BubblePage} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Login} />
       </Switch>
